@@ -4,7 +4,7 @@
 #
 Name     : R-natserv
 Version  : 0.1.4
-Release  : 2
+Release  : 3
 URL      : https://cran.r-project.org/src/contrib/natserv_0.1.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/natserv_0.1.4.tar.gz
 Summary  : 'NatureServe' Interface
