@@ -4,20 +4,22 @@
 #
 Name     : R-natserv
 Version  : 0.3.0
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/natserv_0.3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/natserv_0.3.0.tar.gz
 Summary  : 'NatureServe' Interface
 Group    : Development/Tools
 License  : MIT
-Requires: R-crul
-Requires: R-data.table
-Requires: R-tibble
-Requires: R-vcr
+Requires: R-jsonlite
+Requires: R-urltools
+Requires: R-yaml
 BuildRequires : R-crul
 BuildRequires : R-data.table
+BuildRequires : R-jsonlite
 BuildRequires : R-tibble
+BuildRequires : R-urltools
 BuildRequires : R-vcr
+BuildRequires : R-yaml
 BuildRequires : buildreq-R
 
 %description
@@ -38,10 +40,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548253465
+export SOURCE_DATE_EPOCH=1552836570
 
 %install
-export SOURCE_DATE_EPOCH=1548253465
+export SOURCE_DATE_EPOCH=1552836570
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -77,8 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library natserv|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  natserv || :
 
 
 %files
@@ -112,4 +113,19 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/natserv/help/paths.rds
 /usr/lib64/R/library/natserv/html/00Index.html
 /usr/lib64/R/library/natserv/html/R.css
+/usr/lib64/R/library/natserv/tests/fixtures/ns_data.yml
+/usr/lib64/R/library/natserv/tests/fixtures/ns_data_fixed.yml
+/usr/lib64/R/library/natserv/tests/fixtures/ns_images.yml
+/usr/lib64/R/library/natserv/tests/fixtures/ns_images_error.yml
+/usr/lib64/R/library/natserv/tests/fixtures/ns_search.yml
+/usr/lib64/R/library/natserv/tests/fixtures/ns_search_error.yml
+/usr/lib64/R/library/natserv/tests/test-all.R
+/usr/lib64/R/library/natserv/tests/testthat/helper-natserv.R
+/usr/lib64/R/library/natserv/tests/testthat/helper_data.R
+/usr/lib64/R/library/natserv/tests/testthat/ns_data_output.rda
+/usr/lib64/R/library/natserv/tests/testthat/test-internal_tooling.R
+/usr/lib64/R/library/natserv/tests/testthat/test-ns_data.R
+/usr/lib64/R/library/natserv/tests/testthat/test-ns_images.R
+/usr/lib64/R/library/natserv/tests/testthat/test-ns_map.R
+/usr/lib64/R/library/natserv/tests/testthat/test-ns_search.R
 /usr/lib64/R/library/natserv/vign/natserv_vignette.Rmd

@@ -1,5 +1,8 @@
 0.3.0
 R-crul
 R-data.table
+R-jsonlite
 R-tibble
+R-urltools
 R-vcr
+R-yaml
