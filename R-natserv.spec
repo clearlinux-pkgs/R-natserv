@@ -4,21 +4,26 @@
 #
 Name     : R-natserv
 Version  : 0.3.0
-Release  : 9
+Release  : 10
 URL      : https://cran.r-project.org/src/contrib/natserv_0.3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/natserv_0.3.0.tar.gz
 Summary  : 'NatureServe' Interface
 Group    : Development/Tools
 License  : MIT
-Requires: R-jsonlite
-Requires: R-urltools
-Requires: R-yaml
+Requires: R-httr
+Requires: R-triebeard
+Requires: R-withr
+Requires: R-xml2
 BuildRequires : R-crul
 BuildRequires : R-data.table
+BuildRequires : R-httr
 BuildRequires : R-jsonlite
 BuildRequires : R-tibble
+BuildRequires : R-triebeard
 BuildRequires : R-urltools
 BuildRequires : R-vcr
+BuildRequires : R-withr
+BuildRequires : R-xml2
 BuildRequires : R-yaml
 BuildRequires : buildreq-R
 
@@ -40,10 +45,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552836570
+export SOURCE_DATE_EPOCH=1552881887
 
 %install
-export SOURCE_DATE_EPOCH=1552836570
+export SOURCE_DATE_EPOCH=1552881887
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "

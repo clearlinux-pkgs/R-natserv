@@ -1,8 +1,12 @@
 0.3.0
 R-crul
 R-data.table
+R-httr
 R-jsonlite
 R-tibble
+R-triebeard
 R-urltools
 R-vcr
+R-withr
+R-xml2
 R-yaml
