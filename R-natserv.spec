@@ -4,38 +4,27 @@
 #
 Name     : R-natserv
 Version  : 0.3.0
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/natserv_0.3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/natserv_0.3.0.tar.gz
 Summary  : 'NatureServe' Interface
 Group    : Development/Tools
 License  : MIT
-Requires: R-httr
-Requires: R-triebeard
-Requires: R-withr
+Requires: R-crul
+Requires: R-data.table
+Requires: R-tibble
+Requires: R-vcr
 Requires: R-xml2
 BuildRequires : R-crul
 BuildRequires : R-data.table
-BuildRequires : R-httr
-BuildRequires : R-jsonlite
 BuildRequires : R-tibble
-BuildRequires : R-triebeard
-BuildRequires : R-urltools
 BuildRequires : R-vcr
-BuildRequires : R-withr
 BuildRequires : R-xml2
-BuildRequires : R-yaml
 BuildRequires : buildreq-R
 
 %description
-natserv
-=======
-[![cran checks](https://cranchecks.info/badges/worst/natserv)](https://cranchecks.info/pkgs/natserv)
-[![Build Status](https://travis-ci.org/ropensci/natserv.svg?branch=master)](https://travis-ci.org/ropensci/natserv)
-[![Build status](https://ci.appveyor.com/api/projects/status/mvmi4h4jn5ixf3hs?svg=true)](https://ci.appveyor.com/project/sckott/natserv)
-[![codecov](https://codecov.io/gh/ropensci/natserv/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/natserv)
-[![cran version](http://www.r-pkg.org/badges/version/natserv)](https://cran.r-project.org/package=natserv)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/natserv)](https://github.com/metacran/cranlogs.app)
+Includes methods to get data, image metadata, search taxonomic names,
+    and make maps.
 
 %prep
 %setup -q -c -n natserv
@@ -44,13 +33,13 @@ natserv
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552881887
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569365494
 
 %install
-export SOURCE_DATE_EPOCH=1552881887
+export SOURCE_DATE_EPOCH=1569365494
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -79,12 +68,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  natserv || :
+R CMD check --no-manual --no-examples --no-codoc natserv || :
 
 
 %files
